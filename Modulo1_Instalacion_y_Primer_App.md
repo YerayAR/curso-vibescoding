@@ -1,4 +1,4 @@
-Módulo 1 — Núcleo (Web estática, sin dependencias): instalación mínima, definición de herramientas y primera app con IA
+# Módulo 1 — Núcleo (Web estática, sin dependencias): instalación mínima, definición de herramientas y primera app con IA
 > **Objetivo del módulo**  
 > Preparar el entorno mínimo, definir el **plan de uso** de cada herramienta y construir **tu primera web estática** (HTML/CSS/JS puro) generada con IA. Primero **solicitarás el contenido** de la web al cliente (o a ti mismo), luego lo transformarás en una landing funcional, la **ejecutarás en local** y, por último, **añadirás una mejora** con un segundo prompt. Cero instaladores pesados y **sin npm**.
 
