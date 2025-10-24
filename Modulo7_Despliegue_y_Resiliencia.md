@@ -132,20 +132,77 @@ jobs:
 
 ---
 
-## 6) Estrategias de despliegue y rollback
-### 6.1 Blue/Green (recomendado)
-- Levanta **“green”** con nueva versión.  
-- Ejecuta **smoke** y **status** contra *green*.  
+## 6) Testeo integral de la aplicación
+La resiliencia nace en la **prevención**. Antes de mover una imagen a producción, debes asegurarte de que la aplicación superó un conjunto coherente de pruebas.
+
+### 6.1 Pirámide de pruebas mínima
+- **Pruebas unitarias esenciales**: validan la lógica crítica y reglas de negocio. Ejecuta `npm test`, `pytest`, o el runner propio del stack.
+- **Pruebas de contrato**: aseguran que la API cumpla el contrato documentado (por ejemplo, `docs/tests.http`). Usa `curl` o herramientas como `hoppscotch-cli` para automatizarlas.
+- **Pruebas end-to-end ligeras**: navegan los flujos vitales (login, checkout, reserva). Prioriza scripts sin dependencias pesadas, p. ej. `playwright test --config e2e.config.ts` con modo *headless*.
+
+> Si no hay suites existentes, crea al menos un caso por flujo crítico y documenta cómo ejecutarlo localmente.
+
+### 6.2 Reglas para incluir pruebas en la pipeline
+1. **Fallo = bloqueo**: la pipeline debe detener el despliegue si cualquiera de las suites devuelve estado distinto de `0`.
+2. **Paraleliza** cuando sea posible (`matrix` en GitHub Actions) para que las pruebas no ralenticen el ciclo de entrega.
+3. **Artefactos**: sube reportes (`junit.xml`, capturas) para diagnóstico posterior.
+4. **Datos seguros**: usa *fixtures* o datos sintéticos; nunca credenciales reales.
+
+Ejemplo de pasos integrados en `deploy.yml`:
+```yaml
+  - name: Instalar dependencias del proyecto
+    run: |
+      npm ci
+      npm run build --if-present
+
+  - name: Ejecutar pruebas unitarias
+    run: npm test -- --runInBand
+
+  - name: Pruebas end-to-end (headless)
+    env:
+      BASE_URL: https://staging.app
+    run: |
+      npx playwright install --with-deps
+      npx playwright test --config e2e.config.ts --reporter=line
+
+  - name: Publicar reportes de pruebas
+    if: always()
+    uses: actions/upload-artifact@v4
+    with:
+      name: reportes-pruebas
+      path: tests/reports/**/*
+```
+
+### 6.3 Prueba funcional post-despliegue
+Complementa las comprobaciones automáticas con una verificación manual guiada:
+
+```md
+Checklist "smoke" manual (staging → prod)
+1. Acceder como usuario invitado y verificar que el home carga sin errores en consola.
+2. Ejecutar el flujo principal (reserva, pago, envío) con datos de prueba.
+3. Validar que los registros críticos se escriben (consulta en la base o log centralizado).
+4. Confirmar que los dashboards de métricas y logs muestran actividad normal.
+5. Documentar cualquier anomalía en el runbook y dar go/no-go antes de abrir tráfico.
+```
+
+Registra la evidencia en el repositorio (`docs/runbooks/despliegue.md`) o en tu herramienta de tickets para permitir auditorías futuras.
+
+---
+
+## 7) Estrategias de despliegue y rollback
+### 7.1 Blue/Green (recomendado)
+- Levanta **“green”** con nueva versión.
+- Ejecuta **smoke** y **status** contra *green*.
 - **Cambia el tráfico** (switch) si todo pasa.  
 - **Rollback**: vuelve a *blue* si fallan las comprobaciones.
 
-### 6.2 Canary (progresivo)
+### 7.2 Canary (progresivo)
 - Dirige un **porcentaje pequeño** de tráfico a la nueva versión.  
 - Monitorea errores/latencia.  
 - Incrementa gradualmente si está sano.  
 - **Abortar** si hay degradación.
 
-### 6.3 Rollback rápido (instrucciones operativas)
+### 7.3 Rollback rápido (instrucciones operativas)
 - **Docker images**: etiqueta estable `:stable` y `:candidate`; `docker compose pull && up -d`.  
 - **Git**: `git revert <hash>` de la PR de despliegue; redeploy del commit revertido.  
 - **Datos**: revertir solo si no hay **migraciones destructivas**; si las hay, aplicar **migración inversa**.
@@ -163,18 +220,18 @@ jobs:
 
 ---
 
-## 7) Observabilidad mínima
-### 7.1 Logs (nivel app e infra)
+## 8) Observabilidad mínima
+### 8.1 Logs (nivel app e infra)
 - **Formato estructurado** (clave:valor) para grep/parseo sencillo.  
 - **Correlación** por `requestId` en la API (si aplica).  
 - **No** registrar **PII** ni secretos.  
 - **Rotación** y retención acorde al entorno.
 
-### 7.2 Métricas ligeras
+### 8.2 Métricas ligeras
 - **Tasa de error** (5xx, 4xx clave), **latencia** (p50/p95) y **uptime**.  
 - Exportables vía **endpoint** simple (`/metrics` plano) o por logs contados.
 
-### 7.3 Alertas (umbrales)
+### 8.3 Alertas (umbrales)
 - **Disponibilidad**: `health` fallando > N minutos.  
 - **Errores**: tasa de 5xx > umbral.  
 - **Latencia**: p95 > umbral.  
@@ -184,20 +241,20 @@ jobs:
 
 ---
 
-## 8) Seguridad operacional (resumen)
+## 9) Seguridad operacional (resumen)
 - **Secrets** en *stores* de proveedor o variables de entorno **encriptadas**.  
 - **Cabeceras seguras** en la web (CSP, Referrer-Policy, X-Content-Type-Options, Frame-Ancestors).  
 - **Principio de mínimo privilegio** en base de datos y servidores.  
 - **Backups automáticos** y **pruebas periódicas de restauración**.  
-- **Listas de control** previas a release (ver §10).
+- **Listas de control** previas a release (ver §11).
 
 > Habrá un **módulo dedicado de seguridad extendida** con más detalle (modelado de amenazas y hardening).
 
 ---
 
-## 9) Prompts de trabajo (multifase Yeray)
+## 10) Prompts de trabajo (multifase Yeray)
 
-### 9.1 Diseño de pipeline CI/CD
+### 10.1 Diseño de pipeline CI/CD
 ```text
 Título: Pipeline CI/CD con puertas de calidad y despliegue controlado
 
@@ -210,7 +267,7 @@ Solicito:
 - Instrucciones de rollback y variables/secretos necesarios.
 ```
 
-### 9.2 Observabilidad y alertas
+### 10.2 Observabilidad y alertas
 ```text
 Título: Observabilidad mínima y alertas
 
@@ -222,7 +279,7 @@ Solicito:
 - Formato de logs estructurados y correlación requestId.
 ```
 
-### 9.3 Runbook de incidentes
+### 10.3 Runbook de incidentes
 ```text
 Título: Runbook de incidentes (clasificación y respuesta)
 
@@ -236,7 +293,7 @@ Solicito:
 
 ---
 
-## 10) Checklist previo a release (DoR/Go‑Live)
+## 11) Checklist previo a release (DoR/Go‑Live)
 - [ ] **OpenAPI** sincronizado con la implementación.  
 - [ ] **Healthchecks** responden correctamente.  
 - [ ] **Smoke/status** pasan en staging.  
@@ -248,7 +305,7 @@ Solicito:
 
 ---
 
-## 11) Procedimiento reproducible (paso a paso)
+## 12) Procedimiento reproducible (paso a paso)
 1. Crea `.github/workflows/deploy.yml` con la plantilla §5 y adáptalo a tu hosting.  
 2. Configura **secretos del repositorio** (solo los necesarios).  
 3. En staging, despliega y ejecuta `scripts/smoke.sh` y `scripts/status.sh`.  
@@ -264,7 +321,7 @@ Solicito:
 
 ---
 
-## 12) Anti‑patrones y correcciones rápidas
+## 13) Anti‑patrones y correcciones rápidas
 - **Desplegar a ciegas** sin smoke/status → añade puertas de calidad.  
 - **Secretos en repositorio** → migra a store seguro y revoca los expuestos.  
 - **Sin plan de rollback** → prepara `:stable` y guía de reversión.  
@@ -276,7 +333,7 @@ Solicito:
 
 ---
 
-## 13) Entregables del módulo
+## 14) Entregables del módulo
 - `.github/workflows/deploy.yml` (CI/CD).
 - `scripts/status.sh` y reuso de `scripts/smoke.sh`.
 - Documentos en `/docs/runbooks/` (rollback, incidentes, post‑mortem).
