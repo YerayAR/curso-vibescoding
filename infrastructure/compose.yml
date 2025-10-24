@@ -1,0 +1,104 @@
+version: "3.9"
+
+services:
+  web:
+    build:
+      context: ..
+      dockerfile: infrastructure/docker/Dockerfile.web
+    image: vibescoding/web:local
+    ports:
+      - "8080:80"
+    networks:
+      - appnet
+    volumes:
+      - type: bind
+        source: ../public
+        target: /usr/share/nginx/html
+        read_only: true
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1/ > /dev/null 2>&1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  api:
+    build:
+      context: ..
+      dockerfile: infrastructure/docker/Dockerfile.api
+    image: vibescoding/api:local
+    environment:
+      SERVICE_HOST: 0.0.0.0
+      SERVICE_PORT: 8000
+    ports:
+      - "8081:8000"
+    networks:
+      - appnet
+    volumes:
+      - type: bind
+        source: ../infrastructure/docker/api_server.py
+        target: /opt/app/server.py
+        read_only: true
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:8000/health > /dev/null 2>&1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-appdb}
+      POSTGRES_USER: ${POSTGRES_USER:-appuser}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-apppassword}
+    ports:
+      - "5432:5432"
+    networks:
+      - appnet
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - type: bind
+        source: ./seeds/init.sql
+        target: /docker-entrypoint-initdb.d/init.sql
+        read_only: true
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-appuser} -d ${POSTGRES_DB:-appdb}"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 20s
+
+  admin:
+    image: dpage/pgadmin4:8.6
+    profiles:
+      - admin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-admin@example.com}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-changeMe123}
+    ports:
+      - "8082:80"
+    networks:
+      - appnet
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1/misc/ping > /dev/null 2>&1"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+volumes:
+  pgdata:
+  pgadmin_data:
+
+networks:
+  appnet:
+    driver: bridge
