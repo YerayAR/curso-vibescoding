@@ -1,0 +1,22 @@
+name: Deploy Placeholder
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Preparar entorno
+        run: |
+          echo "TODO: instalar dependencias necesarias"
+      - name: Ejecutar pruebas
+        run: |
+          echo "TODO: ejecutar suite de pruebas"
+      - name: Desplegar
+        run: |
+          echo "TODO: integrar con plataforma de despliegue"

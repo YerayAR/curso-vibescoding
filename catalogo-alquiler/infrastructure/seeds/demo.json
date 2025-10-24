@@ -1,0 +1,27 @@
+{
+  "products": [
+    {
+      "id": "prod-001",
+      "name": "Cámara DSLR",
+      "description": "Cámara profesional para eventos y sesiones fotográficas.",
+      "dailyRate": 45.0
+    },
+    {
+      "id": "prod-002",
+      "name": "Proyector HD",
+      "description": "Proyector de alta definición ideal para presentaciones.",
+      "dailyRate": 35.0
+    }
+  ],
+  "rentals": [
+    {
+      "id": "rent-001",
+      "productId": "prod-001",
+      "customerEmail": "cliente@example.com",
+      "startDate": "2024-06-10",
+      "endDate": "2024-06-12",
+      "status": "confirmed"
+    }
+  ],
+  "notes": "TODO: ampliar datos de demostración con clientes adicionales"
+}

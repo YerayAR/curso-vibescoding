@@ -1,0 +1,68 @@
+openapi: 3.0.3
+info:
+  title: API Catálogo y Alquiler
+  version: 0.1.0
+paths:
+  /health:
+    get:
+      summary: Verificar estado del servicio
+      responses:
+        '200':
+          description: Servicio disponible
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+  /products:
+    get:
+      summary: Listar productos disponibles
+      responses:
+        '200':
+          description: Lista de productos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /rentals:
+    post:
+      summary: Crear un nuevo alquiler
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../app/schemas/RentalCreate.schema.json'
+      responses:
+        '201':
+          description: Alquiler creado
+        '400':
+          description: Datos inválidos
+        '409':
+          description: Rango de fechas no disponible
+  /rentals/{id}:
+    delete:
+      summary: Eliminar un alquiler existente
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Alquiler eliminado
+        '404':
+          description: Alquiler no encontrado
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+security:
+  - ApiKeyAuth: []

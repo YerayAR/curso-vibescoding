@@ -1,0 +1,25 @@
+### Prueba OK
+GET http://localhost:3000/products
+Accept: application/json
+
+### Crear alquiler válido
+POST http://localhost:3000/rentals
+Content-Type: application/json
+
+{
+  "productId": "prod-001",
+  "customerEmail": "cliente@example.com",
+  "startDate": "2024-06-15",
+  "endDate": "2024-06-18"
+}
+
+### Error por solapamiento (409)
+POST http://localhost:3000/rentals
+Content-Type: application/json
+
+{
+  "productId": "prod-001",
+  "customerEmail": "cliente@example.com",
+  "startDate": "2024-06-16",
+  "endDate": "2024-06-18"
+}

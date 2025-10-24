@@ -1,0 +1,18 @@
+# Rutas (pseudocódigo neutral)
+
+ROUTE GET /products:
+  HANDLER listProducts
+  MIDDLEWARES [ensureRequestId]
+
+ROUTE POST /rentals:
+  MIDDLEWARES [validateRentalCreateSchema, ensureAuthenticated]
+  HANDLER createRental
+
+ROUTE DELETE /rentals/{id}:
+  MIDDLEWARES [ensureAuthenticated]
+  HANDLER deleteRental
+
+ROUTE GET /health:
+  HANDLER healthCheck
+
+// TODO: registrar rutas adicionales (pagos, reportes) respetando principios de seguridad.

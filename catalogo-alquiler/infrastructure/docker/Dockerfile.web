@@ -1,0 +1,7 @@
+# Imagen minimalista para servir la web estática
+FROM nginx:alpine
+
+# Copiar archivos públicos
+COPY ../../public /usr/share/nginx/html
+
+# TODO: parametrizar puertos y políticas de caché según entorno
