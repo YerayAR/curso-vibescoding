@@ -1,6 +1,9 @@
 # Módulo 4 — Infraestructura (reproducible y desacoplada)
-> **Objetivo del módulo**  
+> **Objetivo del módulo**
 > Entregar una **infraestructura reproducible** y **desacoplada del negocio**, con contenedores, redes, volúmenes, semillas de datos y scripts de ciclo de vida. Se trabajará con **Docker / Docker Compose**, **control de versiones con Git**, adaptadores de persistencia y **scripts declarativos** que puedas ejecutar desde cualquier terminal (Warp u otro).
+
+> **Nota para quienes nunca tocaron infraestructura**
+> Pensá en esta parte como armar cajas ordenadas donde vive tu aplicación. Explicamos cada paso en lenguaje simple para que puedas montar y repetir el entorno sin conocimientos previos de servidores.
 
 ---
 
@@ -302,11 +305,20 @@ fi
 ---
 
 ## 12) Entregables del módulo
-- `infrastructure/compose.yml` y `infrastructure/docker/*` con **healthchecks**.  
-- `infrastructure/seeds/*` con datos de ejemplo.  
-- Scripts en `/scripts` para el ciclo de vida.  
-- `infrastructure/README.md` con instrucciones y **prueba de humo**.  
+- `infrastructure/compose.yml` y `infrastructure/docker/*` con **healthchecks**.
+- `infrastructure/seeds/*` con datos de ejemplo.
+- Scripts en `/scripts` para el ciclo de vida.
+- `infrastructure/README.md` con instrucciones y **prueba de humo**.
 - PR con evidencia (capturas/registro) del **arranque correcto**.
+
+---
+
+## Glosario esencial del módulo
+- **Contenedor:** paquete que agrupa aplicación y dependencias para ejecutarse igual en cualquier máquina.
+- **Docker Compose:** archivo que describe cómo se relacionan varios contenedores y cómo se inician juntos.
+- **Healthcheck:** verificación automática que confirma si un servicio está funcionando correctamente.
+- **Semilla de datos:** conjunto de datos de ejemplo para poblar una base y probar comportamientos.
+- **Script de ciclo de vida:** comando preparado que automatiza tareas repetitivas (iniciar, detener, revisar).
 
 ---
 
