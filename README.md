@@ -2,7 +2,7 @@
 
 <p align="center">
   <!-- Reemplaza la ruta cuando agregues tu imagen de portada -->
-  <img src="asset/portada-curso.jpg" alt="Portada del curso Vibescoding" width="75%" />
+  <img src="asset/portada-curso.jpg" alt="Portada del curso Vibescoding" width="100%" />
 </p>
 
 ## 🚀 ¿Qué encontrarás en este curso?
