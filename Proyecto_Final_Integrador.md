@@ -1,6 +1,9 @@
 # Proyecto Final Integrador — “Catálogo y Alquiler” (end‑to‑end con IA)
-> **Propósito**  
+> **Propósito**
 > Integrar todo lo aprendido en los módulos 1–7 para entregar una aplicación **profesional, trazable y reproducible**: dominio claro, UI coherente, API limpia, infraestructura con contenedores, CI/CD, seguridad práctica y documentación auditable. **Stack‑agnostic** y **sin gestores de paquetes** en los ejemplos (puedes mapear a tu tecnología).
+
+> **Nota para equipos mixtos**
+> Este proyecto está redactado en un lenguaje claro para que perfiles técnicos y no técnicos puedan colaborar. Cada sección incluye recordatorios y enlaces mentales hacia los módulos previos.
 
 ---
 
@@ -312,10 +315,19 @@ CSP, validación, Auth para mutaciones, secretos fuera del repo.
 ---
 
 ## 13) Consejos finales
-- **Primero claridad, luego complejidad**: KISS y YAGNI siempre.  
-- **Una cosa por commit** y mensajes con intención.  
-- **Prompts** como contrato: pide tablas de archivos y criterios de aceptación.  
+- **Primero claridad, luego complejidad**: KISS y YAGNI siempre.
+- **Una cosa por commit** y mensajes con intención.
+- **Prompts** como contrato: pide tablas de archivos y criterios de aceptación.
 - **Documenta** fallos y aprendizajes: serán oro para la siguiente versión.
+
+---
+
+## Glosario esencial del proyecto
+- **ADR (Architecture Decision Record):** documento corto donde explicas una decisión técnica importante y su motivo.
+- **Go-Live:** momento en el que tu sistema comienza a ser utilizado por personas reales.
+- **Hito end-to-end:** recorrido completo desde la idea hasta el despliegue y monitoreo de la solución.
+- **Smoke test:** prueba rápida que confirma que las funciones básicas siguen vivas después de un cambio.
+- **Trazabilidad:** capacidad de seguir cada cambio desde la idea hasta su implementación y validación.
 
 ---
 
