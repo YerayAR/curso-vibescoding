@@ -1,6 +1,9 @@
 # Módulo 6 — Integración visual (opcional): coherencia UI ↔ dominio ↔ API (sin generadores gráficos)
-> **Objetivo del módulo**  
+> **Objetivo del módulo**
 > Validar la **coherencia visual y semántica** de la interfaz con el **dominio** y la **API**, sin usar IA generativa de imágenes. Se realizarán **auditorías de semántica, accesibilidad, estados y contenidos**, con **capturas comentadas**, propuestas de mejora y verificación manual.
+
+> **Nota para perfiles no técnicos**
+> Miraremos la interfaz como lo haría una persona usuaria exigente. No necesitamos herramientas complicadas: solo sentido común, buenas preguntas y atención al detalle.
 
 ---
 
@@ -238,10 +241,19 @@ En `docs/ui-review.md`, por cada captura incluye:
 ---
 
 ## 10) Entregables del módulo
-- `docs/ui-review.md` con capturas y comentarios.  
-- Difs o bloques de código (HTML/CSS/JS) aplicados.  
-- Checklist de accesibilidad completado.  
+- `docs/ui-review.md` con capturas y comentarios.
+- Difs o bloques de código (HTML/CSS/JS) aplicados.
+- Checklist de accesibilidad completado.
 - Bitácora de prompts (sección UI).
+
+---
+
+## Glosario esencial del módulo
+- **Accesibilidad:** prácticas que aseguran que todas las personas puedan usar la interfaz sin barreras.
+- **Estado vacío / error / carga:** situaciones que muestran mensajes cuando no hay datos, hay un problema o la información está llegando.
+- **Microcopy:** textos cortos que guían al usuario (por ejemplo, el texto de un botón o un mensaje de ayuda).
+- **Semántica HTML:** uso correcto de etiquetas (como `<button>` o `<nav>`) para que el navegador y las herramientas de asistencia entiendan la estructura.
+- **UI (User Interface):** la parte visual con la que interactúa la persona usuaria.
 
 ---
 

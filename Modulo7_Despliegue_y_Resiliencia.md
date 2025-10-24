@@ -1,6 +1,9 @@
 # Módulo 7 — Despliegue y resiliencia (CI/CD, observabilidad y rollback)
-> **Objetivo del módulo**  
+> **Objetivo del módulo**
 > Ejecutar el **despliegue final** con **automatización CI/CD**, definir **mecanismos de observabilidad** (logs, métricas mínimas, healthchecks), y establecer **estrategias de resiliencia** (rollback seguro, backups, políticas de escalabilidad y disponibilidad). Todo **agnóstico de stack** y coherente con la infraestructura del Módulo 4 y la API del Módulo 5.
+
+> **Nota si nunca realizaste un despliegue**
+> Imagina que este módulo es tu plan de evacuación y mantenimiento para el sistema. Aprenderás a preparar botones de emergencia, tableros de control y pasos claros para cuando algo falle.
 
 ---
 
@@ -274,10 +277,20 @@ Solicito:
 ---
 
 ## 13) Entregables del módulo
-- `.github/workflows/deploy.yml` (CI/CD).  
-- `scripts/status.sh` y reuso de `scripts/smoke.sh`.  
-- Documentos en `/docs/runbooks/` (rollback, incidentes, post‑mortem).  
+- `.github/workflows/deploy.yml` (CI/CD).
+- `scripts/status.sh` y reuso de `scripts/smoke.sh`.
+- Documentos en `/docs/runbooks/` (rollback, incidentes, post‑mortem).
 - Checklist de **Go‑Live** completo con evidencias.
+
+---
+
+## Glosario esencial del módulo
+- **CI/CD:** automatización que verifica y despliega tu código cada vez que hay cambios.
+- **Observabilidad:** capacidad de entender qué ocurre dentro de tu sistema mediante métricas, logs y alertas.
+- **Pipeline:** secuencia de pasos automáticos que ejecutan pruebas, construyen y despliegan tu aplicación.
+- **Rollback:** procedimiento para volver rápidamente a una versión anterior cuando algo falla.
+- **Runbook:** guía paso a paso para responder ante incidentes o tareas operativas.
+- **Sondeo de salud (healthcheck):** comprobación periódica que confirma si un servicio responde correctamente.
 
 ---
 

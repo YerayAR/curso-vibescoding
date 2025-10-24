@@ -1,6 +1,9 @@
 # Módulo 2 — Principios y Patrones: Guía de revisión estructural para código generado por IA
-> **Objetivo del módulo**  
+> **Objetivo del módulo**
 > Enseñar a **entrenar a la IA** y no depender ciegamente de ella: aplicar **SOLID, DRY, KISS, YAGNI**, usar **Clean Code** y **Clean Architecture** como filtros de revisión, incorporar patrones **Factory, Repository, Adapter, Strategy** cuando aporten valor, y establecer una **validación continua con ChatGPT** antes de ejecutar.
+
+> **Nota para quien no viene del mundo del software**
+> Este módulo traduce principios clásicos de programación a ejemplos sencillos. Encontrarás explicaciones cortas y comparaciones del día a día para que puedas aplicarlos aunque sea tu primera vez revisando código.
 
 ---
 
@@ -28,11 +31,11 @@ Al finalizar, podrás:
 ## 3) Principios esenciales (resumen operativo)
 
 ### 3.1 SOLID (interpretación práctica)
-- **S**ingle Responsibility: cada módulo **tiene un motivo único** para cambiar.  
-- **O**pen/Closed: extender por **nuevas implementaciones**, no editar lógica estable.  
-- **L**iskov Substitution: las implementaciones **no rompen expectativas** del contrato.  
-- **I**nterface Segregation: **interfaces pequeñas** y específicas; evita “interfaces dios”.  
-- **D**ependency Inversion: dependencias hacia **abstracciones**, no concretos.
+- **S**ingle Responsibility: cada módulo **tiene un motivo único** para cambiar (como separar cajones por tipo de ropa).
+- **O**pen/Closed: extender por **nuevas implementaciones**, no editar lógica estable (añade piezas nuevas sin romper lo que ya funciona).
+- **L**iskov Substitution: las implementaciones **no rompen expectativas** del contrato (si cambias un componente por otro equivalente, todo sigue operando igual).
+- **I**nterface Segregation: **interfaces pequeñas** y específicas; evita “interfaces dios” (prefiere herramientas simples para cada tarea).
+- **D**ependency Inversion: dependencias hacia **abstracciones**, no concretos (apóyate en reglas generales, no en marcas específicas).
 
 ### 3.2 DRY / KISS / YAGNI
 - **DRY**: elimina duplicaciones **con sentido**; abstrae solo si simplifica mantenimiento.  
@@ -316,11 +319,20 @@ function makeUser({id, email, role='user', prefTheme='light'}){
 ---
 
 ## 11) Cierre del módulo (Definition of Done)
-- [ ] Código auditado con **prompts de revisión** y **refactor aplicado**.  
-- [ ] **Principios** (SOLID/DRY/KISS/YAGNI) evidentes en el resultado.  
-- [ ] **Patrones** usados con justificación; sin sobre‑diseño.  
-- [ ] **Documentación antes/después** presente y clara.  
+- [ ] Código auditado con **prompts de revisión** y **refactor aplicado**.
+- [ ] **Principios** (SOLID/DRY/KISS/YAGNI) evidentes en el resultado.
+- [ ] **Patrones** usados con justificación; sin sobre‑diseño.
+- [ ] **Documentación antes/después** presente y clara.
 - [ ] Proyecto listo para avanzar al **Módulo 3 (Diseño del Dominio)**.
+
+---
+
+## Glosario esencial del módulo
+- **Clean Code / Clean Architecture:** conjuntos de buenas prácticas para que el código sea fácil de leer y mantener.
+- **Patrón de diseño:** molde o receta que resuelve un tipo de problema común en el código.
+- **Principios SOLID:** reglas que ayudan a organizar el código para que sea flexible y fácil de cambiar.
+- **Refactor:** mejora del código existente sin cambiar su comportamiento visible.
+- **Validación continua:** revisión frecuente para detectar errores antes de ejecutar el programa.
 
 ---
 

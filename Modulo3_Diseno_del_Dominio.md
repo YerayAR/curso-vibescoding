@@ -1,6 +1,9 @@
 # Módulo 3 — Diseño del Dominio (DDD pragmático, sin dependencias)
-> **Objetivo del módulo**  
+> **Objetivo del módulo**
 > Diseñar el **corazón lógico** de la aplicación sin atarla a frameworks: **Ubiquitous Language**, **entidades**, **Value Objects**, **casos de uso** y **repositorios abstractos**. Todo en archivos planos (JS/TS/psuedocódigo) y **sin instalaciones**. Validaremos el modelo con **pruebas mínimas** (manuales o funciones de verificación) y una **bitácora** de decisiones.
+
+> **Nota para quienes vienen de otras disciplinas**
+> Pensá en este módulo como armar el plano de una casa antes de construirla. Definimos palabras en común, reglas y pasos sin comprometernos con herramientas complejas.
 
 ---
 
@@ -262,9 +265,19 @@ Si no puedes ejecutar, **“simula”** el resultado esperado y documenta el raz
 ---
 
 ## 11) Preparación para el Módulo 4 (Infraestructura)
-- Identifica **qué puertos** requieren implementación concreta (p. ej., `RentalRepository`).  
-- Define **contratos de errores** y **DTOs de entrada/salida** estables.  
+- Identifica **qué puertos** requieren implementación concreta (p. ej., `RentalRepository`).
+- Define **contratos de errores** y **DTOs de entrada/salida** estables.
 - Lista **datos de prueba** para seeds (sin exponer PII real).
+
+---
+
+## Glosario esencial del módulo
+- **Caso de uso:** historia breve que describe cómo alguien utiliza el sistema para lograr un objetivo específico.
+- **Dominio:** conjunto de reglas y conceptos que representan el problema real que tu aplicación resuelve.
+- **Entidad:** objeto con identidad propia y atributos que pueden cambiar en el tiempo.
+- **Lenguaje ubicuo:** vocabulario común acordado por todas las personas del equipo para evitar confusiones.
+- **Repositorio (abstracto):** contrato que define cómo obtener o guardar datos sin especificar la tecnología utilizada.
+- **Value Object (VO):** objeto que representa un valor con reglas claras (por ejemplo, un correo válido) y que no cambia por referencia.
 
 ---
 

@@ -1,6 +1,9 @@
 # Módulo 1 — Núcleo (Web estática, sin dependencias): herramientas, prompting y primera app con IA
-> **Objetivo del módulo**  
+> **Objetivo del módulo**
 > Preparar el entorno mínimo, definir el **plan de uso** de cada herramienta (qué es, para qué sirve y cómo usarla), practicar **prompts efectivos**, y construir **tu primera web estática** (HTML/CSS/JS puro). La secuencia es: **pedir contenido → generar → ejecutar → iterar**, sin instalaciones adicionales.
+>
+> **Nota para quien empieza desde cero**
+> No necesitas experiencia previa en programación. Iremos paso a paso, explicando cada término técnico y proponiendo ejemplos sencillos que podrás adaptar a tu proyecto.
 
 ---
 
@@ -17,28 +20,28 @@ Al finalizar, podrás:
 ## 2) Herramientas: definición y utilidad práctica
 
 ### 2.1 ChatGPT
-- **Qué es:** un asistente que convierte objetivos difusos en **especificaciones claras**, genera **prompts de trabajo** y produce **documentación**.  
-- **Para qué lo uso:** redactar el **brief de contenido**, diseñar **prompts multifase**, revisar coherencia, y explicar cambios.  
-- **Buenas prácticas:** pedir **listas de archivos y responsabilidades** antes del código; exigir **criterios de aceptación** y **checklists**.
+- **Qué es:** un asistente que convierte ideas generales en **explicaciones claras** y genera ejemplos de textos o instrucciones.
+- **Para qué lo uso:** redactar el **brief de contenido**, diseñar **prompts** (pedidos detallados), revisar coherencia y explicar cambios.
+- **Buenas prácticas:** pedir **listas de archivos y responsabilidades** antes del código; exigir **criterios de aceptación** y **checklists** (listas de verificación).
 
 ### 2.2 Copilot Chat / Codex (VibesCoding / GitHub Copilot Chat)
-- **Qué es:** un generador de **bloques de código** a partir de instrucciones; útil para producir **HTML/CSS/JS** rápido y consistente.  
-- **Para qué lo uso:** transformar la especificación (del prompt de ChatGPT) en **archivos concretos**; proponer mejoras pequeñas.  
-- **Buenas prácticas:** pegar el **brief** y pedir **archivos concretos** con contenido, evitando dependencias o librerías.
+- **Qué es:** un asistente que escribe **bloques de código** cuando le das instrucciones claras; ideal para producir **HTML/CSS/JS** de forma rápida.
+- **Para qué lo uso:** transformar la especificación (del prompt de ChatGPT) en **archivos concretos** y proponer mejoras pequeñas.
+- **Buenas prácticas:** pegar el **brief** y pedir **archivos completos** con contenido, evitando dependencias o librerías externas.
 
 ### 2.3 VSCode
-- **Qué es:** editor de código con integración de Copilot Chat y vista previa básica.  
-- **Para qué lo uso:** **editar**, **ordenar** y **revisar** los archivos; abrir `index.html` para ver la web; tomar notas en `/docs`.  
-- **Buenas prácticas:** separar estilos en `assets/css/styles.css` y scripts en `js/main.js`; usar nombres semánticos.
+- **Qué es:** editor de código (similar a un bloc de notas avanzado) con integración de Copilot Chat y vista previa básica.
+- **Para qué lo uso:** **editar**, **ordenar** y **revisar** los archivos; abrir `index.html` para ver la web; tomar notas en `/docs`.
+- **Buenas prácticas:** separar estilos en `assets/css/styles.css` y scripts en `js/main.js`; usar nombres semánticos (que describen su función).
 
 ### 2.4 Warp Terminal (o cualquier terminal)
-- **Qué es:** una consola para **crear carpetas/archivos** y ejecutar utilidades básicas del sistema.  
-- **Para qué lo uso:** estructura del proyecto (carpetas), copiar/renombrar archivos, y (opcional) gestionar control de versiones.  
+- **Qué es:** una consola o ventana de comandos para **crear carpetas/archivos** y ejecutar utilidades básicas del sistema.
+- **Para qué lo uso:** estructurar el proyecto (carpetas), copiar/renombrar archivos, y (opcional) gestionar control de versiones.
 - **Buenas prácticas:** mantener comandos **simples y reproducibles**; usar el explorador del sistema si prefieres.
 
 ### 2.5 Git (opcional recomendado)
-- **Qué es:** sistema de **control de versiones**.  
-- **Para qué lo uso:** crear **puntos de restauración** y documentar cambios con mensajes claros.  
+- **Qué es:** sistema de **control de versiones** (historial de cambios con opción a volver atrás).
+- **Para qué lo uso:** crear **puntos de restauración** y documentar cambios con mensajes claros.
 - **Buenas prácticas:** un cambio por commit; mensajes con **qué** y **por qué**.
 
 ---
@@ -324,10 +327,21 @@ a:hover{ text-decoration:underline }
 ---
 
 ## 8) Próximos pasos
-- Publicar en **GitHub Pages** o similar (copiando la carpeta tal cual).  
-- Añadir **SEO básico** (metadatos, `og:` tags), favicon y sitemap.  
-- Incluir **accesibilidad** adicional (focus visible, labels en formularios).  
+- Publicar en **GitHub Pages** o similar (copiando la carpeta tal cual).
+- Añadir **SEO básico** (metadatos, `og:` tags), favicon y sitemap.
+- Incluir **accesibilidad** adicional (focus visible, labels en formularios).
 - Documentar una **política de cambios**: qué se modifica en cada iteración y por qué.
+
+---
+
+## Glosario esencial del módulo
+- **Accesibilidad:** conjunto de prácticas para que cualquier persona (incluidas personas con discapacidad) pueda usar tu sitio sin obstáculos.
+- **Brief:** resumen del contenido y estilo que deseas para tu proyecto. Sirve como guía para generar textos y diseño.
+- **Checklist:** lista corta de puntos que revisas para confirmar que algo está terminado.
+- **HTML / CSS / JS:** lenguajes básicos de la web. HTML define el contenido, CSS el aspecto visual y JS (JavaScript) agrega interactividad.
+- **Prompt:** instrucción clara que le das a una IA para recibir una respuesta útil.
+- **Repositorio (Git):** carpeta controlada por Git que guarda el historial de cambios de tus archivos.
+- **Tema oscuro/claro:** variantes de colores que facilitan la lectura en distintos ambientes de luz.
 
 ---
 

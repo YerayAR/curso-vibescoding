@@ -1,6 +1,9 @@
 # Módulo 5 — Aplicación y API (REST/GraphQL) limpia, validada y documentada
-> **Objetivo del módulo**  
+> **Objetivo del módulo**
 > Exponer el dominio mediante una **API limpia y delgada** (REST o GraphQL), con **validación de entrada**, **seguridad en la frontera**, **mecanismo uniforme de errores** y **documentación OpenAPI**. Todo con ejemplos **stack-agnostic** (sin depender de gestores de paquetes).
+
+> **Nota si nunca construiste una API**
+> Pensá en una API como un mostrador donde otras aplicaciones hacen pedidos y reciben respuestas claras. Aprenderás a proteger ese mostrador y a explicar cómo usarlo con palabras simples.
 
 ---
 
@@ -382,9 +385,19 @@ curl -i -X POST http://localhost:8081/rentals \
 ---
 
 ## 11) Entregables del módulo
-- `/app` con `routes/`, `controllers/`, `dto/`, `schemas/`, `middlewares/`, `adapters/`, `server/`.  
-- `docs/openapi.yaml` y `docs/tests.http` (o `curl.md`).  
+- `/app` con `routes/`, `controllers/`, `dto/`, `schemas/`, `middlewares/`, `adapters/`, `server/`.
+- `docs/openapi.yaml` y `docs/tests.http` (o `curl.md`).
 - Bitácora con prompts y evidencias de pruebas.
+
+---
+
+## Glosario esencial del módulo
+- **Endpoint:** dirección a la que se envía una petición (por ejemplo, `POST /clientes`) para obtener una acción concreta.
+- **Middleware:** función intermedia que revisa la petición antes de que llegue al controlador (por ejemplo, validar datos o permisos).
+- **OpenAPI:** documento que describe tu API en un formato estándar para que otras personas la entiendan y prueben fácilmente.
+- **DTO (Data Transfer Object):** objeto que define la forma exacta en la que entran o salen los datos de tu API.
+- **REST / GraphQL:** formas de diseñar APIs; REST usa rutas y verbos HTTP, GraphQL utiliza consultas flexibles en un único punto.
+- **Validación:** proceso de comprobar que la información recibida cumple las reglas acordadas antes de procesarla.
 
 ---
 
