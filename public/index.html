@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<!-- 
+  Catálogo y Alquiler - Aplicación de gestión de inventario
+  Curso Vibescoding - Desarrollo Web con IA
+  
+  Este archivo HTML usa semántica moderna y accesibilidad incorporada.
+  Sigue los principios del Módulo 1 (Web Estática) y Módulo 6 (Integración Visual).
+-->
+<html lang="es">
+<head>
+  <!-- Metadatos básicos: codificación y viewport para diseño responsive -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO y descripción del sitio -->
+  <meta name="description" content="Sistema de gestión de catálogo y alquileres. Controla tu inventario sin complicaciones.">
+  <meta name="keywords" content="alquiler, catálogo, gestión, inventario">
+  
+  <title>Catálogo y Alquiler | Gestión de Inventario Inteligente</title>
+  
+  <!-- Enlace al archivo de estilos CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  
+  <!-- Favicon para la pestaña del navegador -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <!-- 
+    CABECERA Y NAVEGACIÓN
+    Incluye el menú principal y el hero (sección destacada de bienvenida)
+  -->
+  <header class="hero" id="inicio">
+    <!-- Barra de navegación principal -->
+    <nav class="navbar" role="navigation" aria-label="Navegación principal">
+      <!-- Logo/marca de la aplicación -->
+      <a class="navbar__brand" href="#inicio" aria-label="Inicio">
+        <span class="navbar__logo">📦</span>
+        Catálogo &amp; Alquiler
+      </a>
+      
+      <!-- Botón hamburguesa para menú móvil (solo visible en pantallas pequeñas) -->
+      <button 
+        class="navbar__toggle" 
+        data-js="navbar-toggle" 
+        aria-expanded="false"
+        aria-label="Abrir menú de navegación"
+      >
+        <span class="navbar__toggle-icon">☰</span>
+      </button>
+      
+      <!-- Enlaces de navegación -->
+      <ul class="navbar__links" data-js="navbar-links" role="list">
+        <li><a href="#beneficios" class="navbar__link">✨ Beneficios</a></li>
+        <li><a href="#servicios" class="navbar__link">🛠️ Servicios</a></li>
+        <li><a href="#testimonios" class="navbar__link">💬 Testimonios</a></li>
+        <li><a href="#contacto" class="navbar__link navbar__link--cta">📧 Contacto</a></li>
+      </ul>
+    </nav>
+    
+    <!-- Sección Hero: mensaje principal de bienvenida -->
+    <div class="hero__content">
+      <h1 class="hero__title">Gestiona tus alquileres sin complicaciones</h1>
+      <p class="hero__subtitle">Centraliza tu catálogo y administra la disponibilidad de forma confiable y eficiente.</p>
+      
+      <!-- Botones de acción principales (CTAs) -->
+      <div class="hero__actions">
+        <a href="#servicios" class="btn btn--primary">Explorar servicios</a>
+        <a href="#contacto" class="btn btn--secondary">Solicitar demo</a>
+      </div>
+      
+      <!-- Toggle de modo oscuro/claro -->
+      <button 
+        class="mode-toggle" 
+        data-js="mode-toggle" 
+        type="button"
+        aria-label="Alternar modo oscuro/claro"
+      >
+        <span class="mode-toggle__icon">🌙</span>
+        <span class="mode-toggle__text">Modo oscuro</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 
+    CONTENIDO PRINCIPAL
+    Contiene todas las secciones de información del sitio
+  -->
+  <main>
+    <!-- 
+      SECCIÓN: BENEFICIOS
+      Explica las ventajas de usar el sistema
+    -->
+    <section id="beneficios" class="section section--highlight">
+      <div class="section__header">
+        <h2 class="section__title">✨ Beneficios clave</h2>
+        <p class="section__subtitle">Descubre cómo nuestro sistema simplifica tu gestión diaria</p>
+      </div>
+      
+      <!-- Lista de beneficios con iconos visuales -->
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-card__icon">👁️</div>
+          <h3 class="benefit-card__title">Visibilidad inmediata</h3>
+          <p class="benefit-card__text">Consulta el inventario disponible en tiempo real desde cualquier dispositivo.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-card__icon">⏰</div>
+          <h3 class="benefit-card__title">Alertas inteligentes</h3>
+          <p class="benefit-card__text">Recibe recordatorios de retornos y notificaciones de solapamientos automáticamente.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-card__icon">📊</div>
+          <h3 class="benefit-card__title">Informes claros</h3>
+          <p class="benefit-card__text">Genera reportes simples y visuales para tomar decisiones de negocio informadas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 
+      SECCIÓN: SERVICIOS
+      Describe los servicios que ofrece la plataforma
+    -->
+    <section id="servicios" class="section">
+      <div class="section__header">
+        <h2 class="section__title">🛠️ Nuestros servicios</h2>
+        <p class="section__subtitle">Herramientas diseñadas para tu comodidad</p>
+      </div>
+      
+      <!-- Grid de tarjetas de servicios -->
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-card__icon">📚</div>
+          <h3 class="service-card__title">Catálogo digital</h3>
+          <p class="service-card__description">
+            Organiza tu inventario con categorías, filtros avanzados y búsqueda instantánea.
+          </p>
+          <ul class="service-card__features">
+            <li>✓ Búsqueda rápida</li>
+            <li>✓ Filtros personalizables</li>
+            <li>✓ Imágenes y descripciones</li>
+          </ul>
+        </article>
+        
+        <article class="service-card">
+          <div class="service-card__icon">📅</div>
+          <h3 class="service-card__title">Agenda de alquileres</h3>
+          <p class="service-card__description">
+            Gestiona reservas con calendario visual y control automático de disponibilidad.
+          </p>
+          <ul class="service-card__features">
+            <li>✓ Vista de calendario</li>
+            <li>✓ Control de solapamientos</li>
+            <li>✓ Estados en tiempo real</li>
+          </ul>
+        </article>
+        
+        <article class="service-card">
+          <div class="service-card__icon">📈</div>
+          <h3 class="service-card__title">Dashboard analítico</h3>
+          <p class="service-card__description">
+            Visualiza métricas clave de tu negocio: ocupación, ingresos y tendencias.
+          </p>
+          <ul class="service-card__features">
+            <li>✓ KPIs visuales</li>
+            <li>✓ Gráficos interactivos</li>
+            <li>✓ Exportación de datos</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- 
+      SECCIÓN: TESTIMONIOS
+      Muestra opiniones de clientes reales para generar confianza
+    -->
+    <section id="testimonios" class="section section--dark">
+      <div class="section__header">
+        <h2 class="section__title">💬 Lo que dicen nuestros clientes</h2>
+        <p class="section__subtitle">Experiencias reales de quienes ya usan el sistema</p>
+      </div>
+      
+      <!-- Grid de testimonios -->
+      <div class="testimonials-grid">
+        <blockquote class="testimonial-card">
+          <div class="testimonial-card__quote">"</div>
+          <p class="testimonial-card__text">
+            Desde que usamos el sistema, coordinamos los alquileres sin errores. 
+            La interfaz es intuitiva y nos ahorra horas cada semana.
+          </p>
+          <footer class="testimonial-card__author">
+            <div class="testimonial-card__avatar">👤</div>
+            <div>
+              <cite class="testimonial-card__name">María González</cite>
+              <p class="testimonial-card__role">Cliente piloto</p>
+            </div>
+          </footer>
+        </blockquote>
+        
+        <blockquote class="testimonial-card">
+          <div class="testimonial-card__quote">"</div>
+          <p class="testimonial-card__text">
+            La disponibilidad en tiempo real evita compromisos dobles. 
+            Es la herramienta que necesitábamos para escalar el negocio.
+          </p>
+          <footer class="testimonial-card__author">
+            <div class="testimonial-card__avatar">👤</div>
+            <div>
+              <cite class="testimonial-card__name">Carlos Martínez</cite>
+              <p class="testimonial-card__role">Responsable de logística</p>
+            </div>
+          </footer>
+        </blockquote>
+        
+        <blockquote class="testimonial-card">
+          <div class="testimonial-card__quote">"</div>
+          <p class="testimonial-card__text">
+            Los informes automáticos nos permiten tomar decisiones basadas en datos reales. 
+            Imprescindible para cualquier negocio de alquiler.
+          </p>
+          <footer class="testimonial-card__author">
+            <div class="testimonial-card__avatar">👤</div>
+            <div>
+              <cite class="testimonial-card__name">Ana Rodríguez</cite>
+              <p class="testimonial-card__role">Directora de operaciones</p>
+            </div>
+          </footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- 
+      SECCIÓN: CONTACTO
+      Formulario para que los visitantes se comuniquen
+    -->
+    <section id="contacto" class="section">
+      <div class="section__header">
+        <h2 class="section__title">📧 ¿Hablamos?</h2>
+        <p class="section__subtitle">Estamos aquí para ayudarte. Déjanos tu mensaje.</p>
+      </div>
+      
+      <div class="contact-wrapper">
+        <!-- Formulario de contacto -->
+        <form class="contact-form" aria-label="Formulario de contacto" data-js="contact-form">
+          <!-- Campo: Nombre -->
+          <div class="form-field">
+            <label for="nombre" class="form-label">Nombre completo</label>
+            <input 
+              type="text" 
+              id="nombre"
+              name="nombre" 
+              class="form-input"
+              placeholder="Ej: Juan Pérez"
+              required
+              aria-required="true"
+            >
+          </div>
+          
+          <!-- Campo: Correo -->
+          <div class="form-field">
+            <label for="correo" class="form-label">Correo electrónico</label>
+            <input 
+              type="email" 
+              id="correo"
+              name="correo" 
+              class="form-input"
+              placeholder="tu@email.com"
+              required
+              aria-required="true"
+            >
+          </div>
+          
+          <!-- Campo: Mensaje -->
+          <div class="form-field">
+            <label for="mensaje" class="form-label">Mensaje</label>
+            <textarea 
+              id="mensaje"
+              name="mensaje" 
+              class="form-textarea"
+              rows="5"
+              placeholder="Cuéntanos cómo podemos ayudarte..."
+              required
+              aria-required="true"
+            ></textarea>
+          </div>
+          
+          <!-- Botón de envío -->
+          <button type="submit" class="btn btn--primary btn--full">
+            <span>Enviar mensaje</span>
+          </button>
+          
+          <!-- Nota: integración pendiente -->
+          <p class="form-note">
+            <small>📝 Nota técnica: Formulario pendiente de integración con API de contacto segura (Módulo 5)</small>
+          </p>
+        </form>
+        
+        <!-- Información de contacto adicional -->
+        <aside class="contact-info">
+          <h3 class="contact-info__title">Otras formas de contacto</h3>
+          <ul class="contact-info__list">
+            <li class="contact-info__item">
+              <span class="contact-info__icon">📧</span>
+              <a href="mailto:hola@catalogo-alquiler.com">hola@catalogo-alquiler.com</a>
+            </li>
+            <li class="contact-info__item">
+              <span class="contact-info__icon">📞</span>
+              <span>+34 900 123 456</span>
+            </li>
+            <li class="contact-info__item">
+              <span class="contact-info__icon">⏰</span>
+              <span>Lun-Vie: 9:00 - 18:00</span>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- 
+    PIE DE PÁGINA
+    Contiene información legal y enlaces adicionales
+  -->
+  <footer class="footer">
+    <div class="footer__content">
+      <div class="footer__section">
+        <h4 class="footer__title">Catálogo & Alquiler</h4>
+        <p class="footer__text">Gestión inteligente de inventario y reservas</p>
+      </div>
+      
+      <div class="footer__section">
+        <h4 class="footer__title">Enlaces rápidos</h4>
+        <ul class="footer__links">
+          <li><a href="#beneficios">Beneficios</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer__section">
+        <h4 class="footer__title">Proyecto educativo</h4>
+        <p class="footer__text">
+          Desarrollado como parte del <strong>Curso Vibescoding</strong><br>
+          Desarrollo Web con IA - Modelo Cebolla Inversa
+        </p>
+      </div>
+    </div>
+    
+    <div class="footer__bottom">
+      <small>&copy; 2024-2025 Catálogo y Alquiler. Proyecto educativo - Todos los derechos reservados.</small>
+    </div>
+  </footer>
+
+  <!-- Script JavaScript: interactividad del sitio -->
+  <script src="js/main.js"></script>
+</body>
+</html>
