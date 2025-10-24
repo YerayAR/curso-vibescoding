@@ -1,0 +1,33 @@
+# Controladores (pseudocódigo)
+
+FUNCTION listProducts(request, response):
+  // TODO: inyectar servicio de catálogo
+  products <- fetchProductsSafely()
+  response.json(200, products)
+
+FUNCTION createRental(request, response):
+  payload <- request.body
+  IF payload inválido THEN
+    response.json(400, { error: "Solicitud inválida" })
+    RETURN
+  ENDIF
+  // TODO: delegar en caso de uso para validar solapamientos
+  result <- rentalsService.create(payload)
+  IF result.conflict THEN
+    response.json(409, { error: "Rango no disponible" })
+    RETURN
+  ENDIF
+  response.json(201, result.data)
+
+FUNCTION deleteRental(request, response):
+  rentalId <- request.params.id
+  // TODO: manejar inexistencia y errores de autorización
+  deletion <- rentalsService.delete(rentalId)
+  IF deletion.notFound THEN
+    response.json(404, { error: "Alquiler no encontrado" })
+    RETURN
+  ENDIF
+  response.json(204, null)
+
+FUNCTION healthCheck(request, response):
+  response.json(200, { status: "ok" })

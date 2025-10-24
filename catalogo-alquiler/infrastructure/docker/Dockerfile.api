@@ -1,0 +1,10 @@
+# Imagen placeholder para la API
+FROM node:20-alpine
+
+WORKDIR /app
+
+# TODO: copiar código fuente una vez exista implementación real
+
+CMD ["node", "server.js"]
+
+# Nota: server.js debe exponer endpoint /health que responda { "status": "ok" }

@@ -1,0 +1,7 @@
+{
+  "productId": "prod-001",
+  "customerEmail": "cliente@example.com",
+  "startDate": "2024-06-01",
+  "endDate": "2024-06-05",
+  "notes": "TODO: incluir comentarios opcionales del cliente"
+}
