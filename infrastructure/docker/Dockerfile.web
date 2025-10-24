@@ -1,0 +1,8 @@
+FROM nginx:alpine
+
+# Copy static assets from the repository public folder.
+COPY ./public /usr/share/nginx/html
+
+# Basic liveness probe leveraging BusyBox wget.
+HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
+  CMD wget -qO- http://127.0.0.1/ > /dev/null 2>&1 || exit 1
