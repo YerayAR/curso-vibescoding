@@ -37,11 +37,14 @@ Un recorrido paso a paso para crear experiencias web modernas apoyándote en Int
 ## 🤝 Contribuye y comparte
 ¿Tienes mejoras, dudas o experiencias que quieras sumar? Abre un issue o comparte tu fork. Este curso crece con la colaboración de la comunidad Vibescoding.
 
+## 🛡️ Licencia
+Este repositorio se distribuye bajo los términos de la [licencia MIT](LICENSE). Puedes usar, adaptar y compartir el contenido del curso y el software que lo acompaña siempre y cuando conserves los avisos de autoría y la misma licencia en tus derivados.
+
 ---
 > "Aprender a crear con tecnología es como aprender un nuevo idioma: lo importante es practicar y disfrutar el proceso."
-=======
+
+======
 # curso-vibescoding
 Desarrollo Web con IA por Capas (Modelo Cebolla Inversa)
 
 Cada módulo incluye notas introductorias para quienes no provienen de ingeniería de software y un **glosario esencial** con definiciones sencillas. Recorre los archivos `Modulo*.md` y el `Proyecto_Final_Integrador.md` para seguir el camino completo.
-
