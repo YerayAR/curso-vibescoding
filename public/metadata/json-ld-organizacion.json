@@ -1,0 +1,28 @@
+{
+  "//": "Plantilla de Organization. Rellenar antes de usar.",
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "TODO: Nombre oficial",
+  "url": "https://www.ejemplo.com/",
+  "logo": "https://www.ejemplo.com/assets/logo.png",
+  "sameAs": [
+    "https://www.linkedin.com/company/todo",
+    "https://twitter.com/todo"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "TODO: Calle",
+    "addressLocality": "TODO: Ciudad",
+    "addressRegion": "TODO: Región",
+    "postalCode": "TODO",
+    "addressCountry": "ES"
+  },
+  "contactPoint": [{
+    "@type": "ContactPoint",
+    "telephone": "+34 000 000 000",
+    "contactType": "customer support",
+    "areaServed": "ES",
+    "availableLanguage": ["es", "en"]
+  }],
+  "TODO": "Eliminar comentarios y completar datos reales"
+}

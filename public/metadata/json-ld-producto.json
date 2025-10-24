@@ -1,0 +1,30 @@
+{
+  "//": "Plantilla de Product. Completar con datos reales antes de publicar.",
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "TODO: Nombre del producto",
+  "image": [
+    "https://www.ejemplo.com/assets/producto.png"
+  ],
+  "description": "TODO: Resumen de beneficios",
+  "sku": "TODO: SKU",
+  "brand": {
+    "@type": "Brand",
+    "name": "TODO: Marca"
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "EUR",
+    "price": "TODO: Precio",
+    "priceValidUntil": "TODO",
+    "itemCondition": "https://schema.org/NewCondition",
+    "availability": "https://schema.org/InStock",
+    "url": "https://www.ejemplo.com/precios"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "TODO",
+    "reviewCount": "TODO"
+  },
+  "TODO": "Revisar compatibilidad con rich results"
+}

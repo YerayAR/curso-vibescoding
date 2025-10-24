@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /privado/
+Allow: /
+
+Sitemap: https://www.ejemplo.com/sitemap.xml
+# TODO: Revisar rutas restringidas adicionales.
