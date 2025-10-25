@@ -1,359 +1,328 @@
 <!DOCTYPE html>
-<!-- 
-  Catálogo y Alquiler - Aplicación de gestión de inventario
-  Curso Vibescoding - Desarrollo Web con IA
-  
-  Este archivo HTML usa semántica moderna y accesibilidad incorporada.
-  Sigue los principios del Módulo 1 (Web Estática) y Módulo 6 (Integración Visual).
--->
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
-  <!-- Metadatos básicos: codificación y viewport para diseño responsive -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- SEO y descripción del sitio -->
-  <meta name="description" content="Sistema de gestión de catálogo y alquileres. Controla tu inventario sin complicaciones.">
-  <meta name="keywords" content="alquiler, catálogo, gestión, inventario">
-  
-  <title>Catálogo y Alquiler | Gestión de Inventario Inteligente</title>
-  
-  <!-- Enlace al archivo de estilos CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css">
-  
-  <!-- Favicon para la pestaña del navegador -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Curso Vibescoding | Desarrollo web con IA y despliegue en Vercel</title>
+  <meta name="description" content="Programa intensivo de 8 módulos para crear, automatizar y desplegar experiencias web con ayuda de IA y Vercel." />
+  <meta name="keywords" content="curso vibescoding, desarrollo web, ia, vercel, frontend, infraestructura" />
+  <link rel="canonical" href="https://curso-vibescoding.vercel.app/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Curso Vibescoding · Desarrollo web con IA" />
+  <meta property="og:description" content="Aprende a construir una web completa, automatizar la infraestructura y desplegarla en Vercel." />
+  <meta property="og:url" content="https://curso-vibescoding.vercel.app/" />
+  <meta property="og:image" content="https://curso-vibescoding.vercel.app/og-image.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Curso Vibescoding" />
+  <meta name="twitter:description" content="Desarrollo web con IA + despliegue listo para producción." />
+  <meta name="twitter:image" content="https://curso-vibescoding.vercel.app/og-image.png" />
+
+  <meta name="theme-color" content="#080c1a" />
+  <meta name="color-scheme" content="light dark" />
+
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="preload" as="image" href="/assets/img/portada-curso.jpg" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Curso Vibescoding: Desarrollo web con IA",
+    "description": "Programa modular para crear experiencias web completas con apoyo de IA y despliegue en Vercel.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Vibescoding",
+      "url": "https://curso-vibescoding.vercel.app/"
+    },
+    "hasCourseInstance": {
+      "@type": "CourseInstance",
+      "courseMode": ["online", "async", "mentoring"],
+      "instructor": {
+        "@type": "Person",
+        "name": "Equipo Vibescoding"
+      }
+    }
+  }
+  </script>
 </head>
 <body>
-  <!-- 
-    CABECERA Y NAVEGACIÓN
-    Incluye el menú principal y el hero (sección destacada de bienvenida)
-  -->
-  <header class="hero" id="inicio">
-    <!-- Barra de navegación principal -->
-    <nav class="navbar" role="navigation" aria-label="Navegación principal">
-      <!-- Logo/marca de la aplicación -->
-      <a class="navbar__brand" href="#inicio" aria-label="Inicio">
-        <span class="navbar__logo">📦</span>
-        Catálogo &amp; Alquiler
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <header class="site-header" id="inicio">
+    <nav class="nav" aria-label="Navegación principal">
+      <a class="nav__brand" href="#inicio">
+        <span class="nav__logo" aria-hidden="true">⚡</span>
+        Curso Vibescoding
       </a>
-      
-      <!-- Botón hamburguesa para menú móvil (solo visible en pantallas pequeñas) -->
-      <button 
-        class="navbar__toggle" 
-        data-js="navbar-toggle" 
-        aria-expanded="false"
-        aria-label="Abrir menú de navegación"
-      >
-        <span class="navbar__toggle-icon">☰</span>
-      </button>
-      
-      <!-- Enlaces de navegación -->
-      <ul class="navbar__links" data-js="navbar-links" role="list">
-        <li><a href="#beneficios" class="navbar__link">✨ Beneficios</a></li>
-        <li><a href="#servicios" class="navbar__link">🛠️ Servicios</a></li>
-        <li><a href="#testimonios" class="navbar__link">💬 Testimonios</a></li>
-        <li><a href="#contacto" class="navbar__link navbar__link--cta">📧 Contacto</a></li>
-      </ul>
-    </nav>
-    
-    <!-- Sección Hero: mensaje principal de bienvenida -->
-    <div class="hero__content">
-      <h1 class="hero__title">Gestiona tus alquileres sin complicaciones</h1>
-      <p class="hero__subtitle">Centraliza tu catálogo y administra la disponibilidad de forma confiable y eficiente.</p>
-      
-      <!-- Botones de acción principales (CTAs) -->
-      <div class="hero__actions">
-        <a href="#servicios" class="btn btn--primary">Explorar servicios</a>
-        <a href="#contacto" class="btn btn--secondary">Solicitar demo</a>
+
+      <div class="nav__actions">
+        <button class="nav__theme" type="button" data-js="theme-toggle" aria-pressed="true">
+          <span class="nav__theme-icon" aria-hidden="true">🌙</span>
+          <span class="nav__theme-text">Modo claro</span>
+        </button>
+        <button class="nav__toggle" type="button" data-js="nav-toggle" aria-expanded="false" aria-label="Abrir menú">
+          <span class="nav__toggle-icon" aria-hidden="true"></span>
+        </button>
       </div>
-      
-      <!-- Toggle de modo oscuro/claro -->
-      <button 
-        class="mode-toggle" 
-        data-js="mode-toggle" 
-        type="button"
-        aria-label="Alternar modo oscuro/claro"
-      >
-        <span class="mode-toggle__icon">🌙</span>
-        <span class="mode-toggle__text">Modo oscuro</span>
-      </button>
+
+      <div class="nav__links" data-js="nav-links">
+        <a href="#razones" class="nav__link">Por qué</a>
+        <a href="#programa" class="nav__link">Mapa</a>
+        <a href="#recursos" class="nav__link">Recursos</a>
+        <a href="#faq" class="nav__link">FAQ</a>
+        <a href="docs/Modulo1_WebEstatica_Sin_Dependencias.md" class="btn btn--ghost" target="_blank" rel="noopener">Descargar temario</a>
+      </div>
+    </nav>
+
+    <div class="hero" id="contenido">
+      <div class="hero__content">
+        <p class="eyebrow">Aprendizaje modular · IA + buenas prácticas</p>
+        <h1>Construye, automatiza y despliega una web profesional lista para Vercel</h1>
+        <p class="hero__lead">
+          Domina la cebolla inversa de Vibescoding: desde una página estática sin dependencias hasta la observabilidad de la infraestructura. Cada módulo incluye guías en Markdown descargables y retos listos para llevar a producción.
+        </p>
+        <div class="hero__cta">
+          <a href="#programa" class="btn btn--primary">Ver mapa completo</a>
+          <a href="https://vercel.com/new" class="btn btn--secondary" target="_blank" rel="noopener">Desplegar en Vercel</a>
+        </div>
+        <ul class="hero__meta" role="list">
+          <li><strong>8</strong> módulos guiados</li>
+          <li><strong>30+</strong> retos prácticos</li>
+          <li><strong>Markdown</strong> listo para remezclar</li>
+        </ul>
+      </div>
+      <figure class="hero__media">
+        <img src="assets/img/portada-curso.jpg" alt="Vista previa del material del curso Vibescoding" loading="lazy" />
+        <figcaption>Material editable y versionado. Úsalo con tu asistente de IA favorito.</figcaption>
+        <div class="hero__card">
+          <p class="hero__card-label">Checklist de despliegue</p>
+          <ul>
+            <li>✔️ Infra reproducible</li>
+            <li>✔️ Scripts de automatización</li>
+            <li>✔️ Deploy estático en Vercel</li>
+          </ul>
+        </div>
+      </figure>
     </div>
   </header>
 
-  <!-- 
-    CONTENIDO PRINCIPAL
-    Contiene todas las secciones de información del sitio
-  -->
   <main>
-    <!-- 
-      SECCIÓN: BENEFICIOS
-      Explica las ventajas de usar el sistema
-    -->
-    <section id="beneficios" class="section section--highlight">
-      <div class="section__header">
-        <h2 class="section__title">✨ Beneficios clave</h2>
-        <p class="section__subtitle">Descubre cómo nuestro sistema simplifica tu gestión diaria</p>
-      </div>
-      
-      <!-- Lista de beneficios con iconos visuales -->
-      <div class="benefits-grid">
-        <div class="benefit-card">
-          <div class="benefit-card__icon">👁️</div>
-          <h3 class="benefit-card__title">Visibilidad inmediata</h3>
-          <p class="benefit-card__text">Consulta el inventario disponible en tiempo real desde cualquier dispositivo.</p>
-        </div>
-        
-        <div class="benefit-card">
-          <div class="benefit-card__icon">⏰</div>
-          <h3 class="benefit-card__title">Alertas inteligentes</h3>
-          <p class="benefit-card__text">Recibe recordatorios de retornos y notificaciones de solapamientos automáticamente.</p>
-        </div>
-        
-        <div class="benefit-card">
-          <div class="benefit-card__icon">📊</div>
-          <h3 class="benefit-card__title">Informes claros</h3>
-          <p class="benefit-card__text">Genera reportes simples y visuales para tomar decisiones de negocio informadas.</p>
-        </div>
-      </div>
+    <section class="stats" aria-label="Indicadores del curso">
+      <article>
+        <p class="stats__label">Stack del curso</p>
+        <h3>HTML · CSS · JS · Git · Vercel</h3>
+        <p>Sin dependencias ocultas. Todo el código vive en este repo.</p>
+      </article>
+      <article>
+        <p class="stats__label">Mentoría asistida</p>
+        <h3>Plantillas + prompts</h3>
+        <p>Cada módulo sugiere flujos de trabajo con IA para acelerar tus entregables.</p>
+      </article>
+      <article>
+        <p class="stats__label">Entrega final</p>
+        <h3>Proyecto integrador</h3>
+        <p>Unifica el catálogo, la API, la interfaz y la infraestructura en un único despliegue.</p>
+      </article>
     </section>
 
-    <!-- 
-      SECCIÓN: SERVICIOS
-      Describe los servicios que ofrece la plataforma
-    -->
-    <section id="servicios" class="section">
+    <section id="razones" class="section">
       <div class="section__header">
-        <h2 class="section__title">🛠️ Nuestros servicios</h2>
-        <p class="section__subtitle">Herramientas diseñadas para tu comodidad</p>
+        <p class="eyebrow">Acompañamiento completo</p>
+        <h2>¿Por qué este curso funciona?</h2>
+        <p>Diseñamos cada capa para que puedas validar rápido y iterar con seguridad.</p>
       </div>
-      
-      <!-- Grid de tarjetas de servicios -->
-      <div class="services-grid">
-        <article class="service-card">
-          <div class="service-card__icon">📚</div>
-          <h3 class="service-card__title">Catálogo digital</h3>
-          <p class="service-card__description">
-            Organiza tu inventario con categorías, filtros avanzados y búsqueda instantánea.
-          </p>
-          <ul class="service-card__features">
-            <li>✓ Búsqueda rápida</li>
-            <li>✓ Filtros personalizables</li>
-            <li>✓ Imágenes y descripciones</li>
-          </ul>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>Modelo cebolla inversa</h3>
+          <p>Aprendes desde lo más visible hacia lo más interno del sistema. Cada capa se vuelve usable aunque aún no termines las siguientes.</p>
         </article>
-        
-        <article class="service-card">
-          <div class="service-card__icon">📅</div>
-          <h3 class="service-card__title">Agenda de alquileres</h3>
-          <p class="service-card__description">
-            Gestiona reservas con calendario visual y control automático de disponibilidad.
-          </p>
-          <ul class="service-card__features">
-            <li>✓ Vista de calendario</li>
-            <li>✓ Control de solapamientos</li>
-            <li>✓ Estados en tiempo real</li>
-          </ul>
+        <article class="feature-card">
+          <h3>Entrega basada en IA</h3>
+          <p>Prompts, sistematizaciones y checklists para que tu asistente genere borradores de componentes, tests y documentación.</p>
         </article>
-        
-        <article class="service-card">
-          <div class="service-card__icon">📈</div>
-          <h3 class="service-card__title">Dashboard analítico</h3>
-          <p class="service-card__description">
-            Visualiza métricas clave de tu negocio: ocupación, ingresos y tendencias.
-          </p>
-          <ul class="service-card__features">
-            <li>✓ KPIs visuales</li>
-            <li>✓ Gráficos interactivos</li>
-            <li>✓ Exportación de datos</li>
-          </ul>
+        <article class="feature-card">
+          <h3>Deploy listo para Vercel</h3>
+          <p>La carpeta <code>public/</code> es tu output. Sin build step y con <code>vercel.json</code> opcional para personalizar dominios.</p>
         </article>
       </div>
     </section>
 
-    <!-- 
-      SECCIÓN: TESTIMONIOS
-      Muestra opiniones de clientes reales para generar confianza
-    -->
-    <section id="testimonios" class="section section--dark">
+    <section id="programa" class="section">
       <div class="section__header">
-        <h2 class="section__title">💬 Lo que dicen nuestros clientes</h2>
-        <p class="section__subtitle">Experiencias reales de quienes ya usan el sistema</p>
+        <p class="eyebrow">Mapa curricular</p>
+        <h2>Domina cada capa sin saltos bruscos</h2>
+        <p>Filtra los módulos según el tipo de reto que necesitas atacar hoy.</p>
       </div>
-      
-      <!-- Grid de testimonios -->
-      <div class="testimonials-grid">
-        <blockquote class="testimonial-card">
-          <div class="testimonial-card__quote">"</div>
-          <p class="testimonial-card__text">
-            Desde que usamos el sistema, coordinamos los alquileres sin errores. 
-            La interfaz es intuitiva y nos ahorra horas cada semana.
-          </p>
-          <footer class="testimonial-card__author">
-            <div class="testimonial-card__avatar">👤</div>
-            <div>
-              <cite class="testimonial-card__name">María González</cite>
-              <p class="testimonial-card__role">Cliente piloto</p>
-            </div>
-          </footer>
-        </blockquote>
-        
-        <blockquote class="testimonial-card">
-          <div class="testimonial-card__quote">"</div>
-          <p class="testimonial-card__text">
-            La disponibilidad en tiempo real evita compromisos dobles. 
-            Es la herramienta que necesitábamos para escalar el negocio.
-          </p>
-          <footer class="testimonial-card__author">
-            <div class="testimonial-card__avatar">👤</div>
-            <div>
-              <cite class="testimonial-card__name">Carlos Martínez</cite>
-              <p class="testimonial-card__role">Responsable de logística</p>
-            </div>
-          </footer>
-        </blockquote>
-        
-        <blockquote class="testimonial-card">
-          <div class="testimonial-card__quote">"</div>
-          <p class="testimonial-card__text">
-            Los informes automáticos nos permiten tomar decisiones basadas en datos reales. 
-            Imprescindible para cualquier negocio de alquiler.
-          </p>
-          <footer class="testimonial-card__author">
-            <div class="testimonial-card__avatar">👤</div>
-            <div>
-              <cite class="testimonial-card__name">Ana Rodríguez</cite>
-              <p class="testimonial-card__role">Directora de operaciones</p>
-            </div>
-          </footer>
-        </blockquote>
+      <div class="program-filter" role="group" aria-label="Filtrar módulos">
+        <button class="chip is-active" type="button" data-js="program-chip" data-filter="all">Todo el mapa</button>
+        <button class="chip" type="button" data-js="program-chip" data-filter="fundamentos">Fundamentos</button>
+        <button class="chip" type="button" data-js="program-chip" data-filter="practica">Práctica guiada</button>
+        <button class="chip" type="button" data-js="program-chip" data-filter="operacion">Operación</button>
+      </div>
+      <div class="program-grid" data-js="program-grid">
+        <article class="module-card" data-phase="fundamentos">
+          <p class="module-card__tag">Módulo 1</p>
+          <h3>Web estática sin dependencias</h3>
+          <p>Estructura semántica, accesible y versionable sin toolchains. Ideal para iniciar con IA generando markup seguro.</p>
+          <a href="docs/Modulo1_WebEstatica_Sin_Dependencias.md" class="module-card__cta" target="_blank" rel="noopener">Abrir material</a>
+        </article>
+        <article class="module-card" data-phase="fundamentos">
+          <p class="module-card__tag">Módulo 2</p>
+          <h3>Principios y patrones</h3>
+          <p>SOLID, composición y patrones de diseño web aplicados a componentes y estilos reutilizables.</p>
+          <a href="docs/Modulo2_Principios_y_Patrones.md" class="module-card__cta" target="_blank" rel="noopener">Abrir material</a>
+        </article>
+        <article class="module-card" data-phase="fundamentos">
+          <p class="module-card__tag">Módulo 3</p>
+          <h3>Diseño del dominio</h3>
+          <p>Modela entidades, flujos y límites del sistema para que tu UI refleje el negocio real.</p>
+          <a href="docs/Modulo3_Diseno_del_Dominio.md" class="module-card__cta" target="_blank" rel="noopener">Abrir material</a>
+        </article>
+        <article class="module-card" data-phase="practica">
+          <p class="module-card__tag">Módulo 4</p>
+          <h3>Infraestructura reproducible</h3>
+          <p>Automatiza tareas con scripts, makefiles y plantillas para que tu equipo arranque en minutos.</p>
+          <a href="docs/Modulo4_Infraestructura_Reproducible.md" class="module-card__cta" target="_blank" rel="noopener">Abrir material</a>
+        </article>
+        <article class="module-card" data-phase="practica">
+          <p class="module-card__tag">Módulo 5</p>
+          <h3>Aplicación y API</h3>
+          <p>Conecta datos reales, diseña contratos claros y crea endpoints listos para ser consumidos desde la interfaz.</p>
+          <a href="docs/Modulo5_Aplicacion_y_API.md" class="module-card__cta" target="_blank" rel="noopener">Abrir material</a>
+        </article>
+        <article class="module-card" data-phase="practica">
+          <p class="module-card__tag">Módulo 6</p>
+          <h3>Integración visual</h3>
+          <p>Sistema de diseño, tokens y pruebas de accesibilidad para entregar una UX coherente.</p>
+          <a href="docs/Modulo6_Integracion_Visual.md" class="module-card__cta" target="_blank" rel="noopener">Abrir material</a>
+        </article>
+        <article class="module-card" data-phase="operacion">
+          <p class="module-card__tag">Módulo 7</p>
+          <h3>Despliegue y resiliencia</h3>
+          <p>Observabilidad, backups y estrategias de rollback aplicadas al despliegue en Vercel.</p>
+          <a href="docs/Modulo7_Despliegue_y_Resiliencia.md" class="module-card__cta" target="_blank" rel="noopener">Abrir material</a>
+        </article>
+        <article class="module-card" data-phase="operacion">
+          <p class="module-card__tag">Módulo 8</p>
+          <h3>Debugging y control operacional</h3>
+          <p>Playbooks, tableros y comandos para diagnosticar incidentes apoyándote en IA.</p>
+          <a href="docs/Modulo8_Debugging_y_Control_Operacional.md" class="module-card__cta" target="_blank" rel="noopener">Abrir material</a>
+        </article>
+        <article class="module-card module-card--highlight" data-phase="operacion">
+          <p class="module-card__tag">Proyecto final</p>
+          <h3>Integrador completo</h3>
+          <p>Une catálogo, API, interfaz y despliegue en un demo público. Incluye checklist de defensa y rúbrica.</p>
+          <a href="docs/Proyecto_Final_Integrador.md" class="module-card__cta" target="_blank" rel="noopener">Ver guía del proyecto</a>
+        </article>
       </div>
     </section>
 
-    <!-- 
-      SECCIÓN: CONTACTO
-      Formulario para que los visitantes se comuniquen
-    -->
-    <section id="contacto" class="section">
+    <section id="recursos" class="section section--accent">
       <div class="section__header">
-        <h2 class="section__title">📧 ¿Hablamos?</h2>
-        <p class="section__subtitle">Estamos aquí para ayudarte. Déjanos tu mensaje.</p>
+        <p class="eyebrow">Recursos incluidos</p>
+        <h2>Todo lo que necesitas para iterar con confianza</h2>
       </div>
-      
-      <div class="contact-wrapper">
-        <!-- Formulario de contacto -->
-        <form class="contact-form" aria-label="Formulario de contacto" data-js="contact-form">
-          <!-- Campo: Nombre -->
-          <div class="form-field">
-            <label for="nombre" class="form-label">Nombre completo</label>
-            <input 
-              type="text" 
-              id="nombre"
-              name="nombre" 
-              class="form-input"
-              placeholder="Ej: Juan Pérez"
-              required
-              aria-required="true"
-            >
-          </div>
-          
-          <!-- Campo: Correo -->
-          <div class="form-field">
-            <label for="correo" class="form-label">Correo electrónico</label>
-            <input 
-              type="email" 
-              id="correo"
-              name="correo" 
-              class="form-input"
-              placeholder="tu@email.com"
-              required
-              aria-required="true"
-            >
-          </div>
-          
-          <!-- Campo: Mensaje -->
-          <div class="form-field">
-            <label for="mensaje" class="form-label">Mensaje</label>
-            <textarea 
-              id="mensaje"
-              name="mensaje" 
-              class="form-textarea"
-              rows="5"
-              placeholder="Cuéntanos cómo podemos ayudarte..."
-              required
-              aria-required="true"
-            ></textarea>
-          </div>
-          
-          <!-- Botón de envío -->
-          <button type="submit" class="btn btn--primary btn--full">
-            <span>Enviar mensaje</span>
-          </button>
-          
-          <!-- Nota: integración pendiente -->
-          <p class="form-note">
-            <small>📝 Nota técnica: Formulario pendiente de integración con API de contacto segura (Módulo 5)</small>
-          </p>
-        </form>
-        
-        <!-- Información de contacto adicional -->
-        <aside class="contact-info">
-          <h3 class="contact-info__title">Otras formas de contacto</h3>
-          <ul class="contact-info__list">
-            <li class="contact-info__item">
-              <span class="contact-info__icon">📧</span>
-              <a href="mailto:hola@catalogo-alquiler.com">hola@catalogo-alquiler.com</a>
-            </li>
-            <li class="contact-info__item">
-              <span class="contact-info__icon">📞</span>
-              <span>+34 900 123 456</span>
-            </li>
-            <li class="contact-info__item">
-              <span class="contact-info__icon">⏰</span>
-              <span>Lun-Vie: 9:00 - 18:00</span>
-            </li>
-          </ul>
-        </aside>
+      <div class="resource-grid">
+        <article>
+          <h3>Guías descargables</h3>
+          <p>Los Markdown viven en <code>public/docs/</code>. Puedes importarlos a Notion, Obsidian o tu IDE.</p>
+        </article>
+        <article>
+          <h3>Automatizaciones</h3>
+          <p>Scripts demostrativos en <code>scripts/</code> y workflows sugeridos para CI/CD.</p>
+        </article>
+        <article>
+          <h3>Playbooks de IA</h3>
+          <p>Prompts base para pair-programming, revisión de código y debugging asistido.</p>
+        </article>
+        <article>
+          <h3>Checklist de despliegue</h3>
+          <p>Pasos claros para configurar proyecto estático en Vercel, variables y dominios.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--split">
+      <div>
+        <p class="eyebrow">Formato</p>
+        <h2>Aprende a tu ritmo y publica en días</h2>
+        <ul class="list">
+          <li>🎯 Retos incrementales con soluciones orientativas.</li>
+          <li>🧭 Roadmap de verificación para cada módulo.</li>
+          <li>🛠️ Plantillas reutilizables para briefs, handoffs y documentación.</li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Despliegue</p>
+        <h2>Ready for Vercel</h2>
+        <ul class="list">
+          <li>🚀 Carpeta <code>public/</code> como output estático.</li>
+          <li>🗂️ Soporte para <code>vercel.json</code> o configuración desde el dashboard.</li>
+          <li>🔄 Scripts para sincronizar docs y assets con tu build.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="section__header">
+        <p class="eyebrow">Preguntas frecuentes</p>
+        <h2>Resolviendo tus dudas rápido</h2>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>¿Necesito experiencia previa?</summary>
+          <p>No. Empezamos con HTML y CSS puros, explicando cada decisión. Si ya programas, puedes saltar a los módulos avanzados.</p>
+        </details>
+        <details>
+          <summary>¿Cómo uso los materiales con IA?</summary>
+          <p>Cada módulo trae prompts de ejemplo en los que defines contexto, restricciones y formato esperado antes de pedir código.</p>
+        </details>
+        <details>
+          <summary>¿Puedo desplegar algo diferente al ejemplo?</summary>
+          <p>Sí. La arquitectura está pensada para que personalices copy, estilos o APIs y publiques tu propia marca en Vercel.</p>
+        </details>
+        <details>
+          <summary>¿Cómo actualizo la web?</summary>
+          <p>Modifica los archivos en <code>public/</code>, haz <code>git push</code> y Vercel redeployará automáticamente.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>Lista/o para construir con IA?</h2>
+      <p>Clona el repo, personaliza el contenido y presiona deploy. Tendrás una web pública en minutos.</p>
+      <div class="cta__actions">
+        <a href="https://github.com/yera2/curso-vibescoding" class="btn btn--primary" target="_blank" rel="noopener">Abrir repositorio</a>
+        <a href="mailto:hola@vibescoding.com" class="btn btn--secondary">Escríbenos tus dudas</a>
       </div>
     </section>
   </main>
 
-  <!-- 
-    PIE DE PÁGINA
-    Contiene información legal y enlaces adicionales
-  -->
-  <footer class="footer">
-    <div class="footer__content">
-      <div class="footer__section">
-        <h4 class="footer__title">Catálogo & Alquiler</h4>
-        <p class="footer__text">Gestión inteligente de inventario y reservas</p>
-      </div>
-      
-      <div class="footer__section">
-        <h4 class="footer__title">Enlaces rápidos</h4>
-        <ul class="footer__links">
-          <li><a href="#beneficios">Beneficios</a></li>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#testimonios">Testimonios</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </div>
-      
-      <div class="footer__section">
-        <h4 class="footer__title">Proyecto educativo</h4>
-        <p class="footer__text">
-          Desarrollado como parte del <strong>Curso Vibescoding</strong><br>
-          Desarrollo Web con IA - Modelo Cebolla Inversa
-        </p>
-      </div>
+  <footer class="site-footer">
+    <div>
+      <p class="site-footer__brand">Curso Vibescoding</p>
+      <p>Creado por personas que disfrutan construir con IA.</p>
     </div>
-    
-    <div class="footer__bottom">
-      <small>&copy; 2024-2025 Catálogo y Alquiler. Proyecto educativo - Todos los derechos reservados.</small>
+    <div>
+      <p class="site-footer__label">Recursos</p>
+      <ul>
+        <li><a href="docs/Modulo6_Integracion_Visual.md" target="_blank" rel="noopener">Sistema de diseño</a></li>
+        <li><a href="docs/Modulo8_Debugging_y_Control_Operacional.md" target="_blank" rel="noopener">Playbook operacional</a></li>
+        <li><a href="docs/Proyecto_Final_Integrador.md" target="_blank" rel="noopener">Proyecto final</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="site-footer__label">Listo para desplegar</p>
+      <p>Vercel detecta automáticamente esta carpeta como un sitio estático. Solo selecciona <strong>Framework Preset → Other</strong>.</p>
     </div>
   </footer>
 
-  <!-- Script JavaScript: interactividad del sitio -->
-  <script src="js/main.js"></script>
+  <script src="/js/main.js" defer></script>
 </body>
 </html>
+
