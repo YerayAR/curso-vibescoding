@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo - Curso Vibescoding</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <style>
+    .markdown-viewer {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem clamp(1rem, 4vw, 2rem);
+      line-height: 1.7;
+    }
+
+    .markdown-viewer h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin: 2rem 0 1rem;
+      line-height: 1.2;
+    }
+
+    .markdown-viewer h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--color-border);
+    }
+
+    .markdown-viewer h3 {
+      font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+      margin: 2rem 0 0.8rem;
+    }
+
+    .markdown-viewer p {
+      margin: 1rem 0;
+    }
+
+    .markdown-viewer blockquote {
+      margin: 1.5rem 0;
+      padding: 1rem 1.5rem;
+      background: var(--color-card);
+      border-left: 4px solid var(--color-accent);
+      border-radius: 0.5rem;
+    }
+
+    .markdown-viewer code {
+      background: var(--color-card);
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.3rem;
+      font-size: 0.9em;
+      font-family: 'Courier New', monospace;
+    }
+
+    .markdown-viewer pre {
+      background: var(--color-card);
+      padding: 1.5rem;
+      border-radius: 0.8rem;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border: 1px solid var(--color-border);
+    }
+
+    .markdown-viewer pre code {
+      background: none;
+      padding: 0;
+    }
+
+    .markdown-viewer ul, .markdown-viewer ol {
+      margin: 1rem 0;
+      padding-left: 2rem;
+    }
+
+    .markdown-viewer li {
+      margin: 0.5rem 0;
+    }
+
+    .markdown-viewer table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+
+    .markdown-viewer th,
+    .markdown-viewer td {
+      padding: 0.75rem;
+      border: 1px solid var(--color-border);
+      text-align: left;
+    }
+
+    .markdown-viewer th {
+      background: var(--color-card);
+      font-weight: 600;
+    }
+
+    .markdown-viewer a {
+      color: var(--color-accent-strong);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 200ms ease;
+    }
+
+    .markdown-viewer a:hover {
+      border-color: var(--color-accent-strong);
+    }
+
+    .markdown-viewer hr {
+      border: none;
+      border-top: 2px solid var(--color-border);
+      margin: 3rem 0;
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 2rem 0 1rem;
+      padding: 0.5rem 1rem;
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: 0.5rem;
+      text-decoration: none;
+      color: var(--color-text);
+      transition: transform 200ms ease;
+    }
+
+    .back-button:hover {
+      transform: translateX(-4px);
+    }
+
+    .loading {
+      text-align: center;
+      padding: 4rem 2rem;
+      font-size: 1.2rem;
+      color: var(--color-muted);
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="markdown-viewer">
+    <a href="/" class="back-button">← Volver al curso</a>
+    <div id="content" class="loading">Cargando módulo...</div>
+  </div>
+
+  <script>
+    // Obtener el parámetro de URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const modulePath = urlParams.get('module');
+
+    if (!modulePath) {
+      document.getElementById('content').innerHTML = '<p>No se especificó un módulo.</p>';
+    } else {
+      // Cargar y renderizar el Markdown
+      fetch(modulePath)
+        .then(response => {
+          if (!response.ok) throw new Error('Módulo no encontrado');
+          return response.text();
+        })
+        .then(markdown => {
+          document.getElementById('content').innerHTML = marked.parse(markdown);
+          
+          // Actualizar título de la página
+          const firstH1 = document.querySelector('h1');
+          if (firstH1) {
+            document.title = firstH1.textContent + ' - Curso Vibescoding';
+          }
+        })
+        .catch(error => {
+          document.getElementById('content').innerHTML = 
+            '<p>Error al cargar el módulo: ' + error.message + '</p>';
+        });
+    }
+  </script>
+  <script src="/js/main.js" defer></script>
+</body>
+</html>
