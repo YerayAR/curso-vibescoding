@@ -22,8 +22,9 @@ Un recorrido paso a paso para crear experiencias web modernas apoyándote en Int
 | Capa 5 | `Modulo5_Aplicacion_y_API.md` | Crear APIs y servicios que conecten las piezas del proyecto. |
 | Capa 6 | `Modulo6_Integracion_Visual.md` | Unir backend y frontend en una experiencia visual consistente. |
 | Capa 7 | `Modulo7_Despliegue_y_Resiliencia.md` | Desplegar la solución y asegurar su resiliencia en producción. |
-| Capa 8 | `Modulo8_debugging_y_control_operacional_con_IA.md` | Diagnóstico de problemas, respuesta rápida a errores, y comandos claros para controlar la infraestructura. |
-| Gran cierre | `Trabajo de integración de lo aprendido` | Integrar todas las capas en un producto final listo para mostrar. |
+| Capa 8 | `Modulo8_Debugging_y_Control_Operacional.md` | Diagnóstico de problemas, respuesta rápida a errores, y comandos claros para controlar la infraestructura. |
+| **Extra** | `ModuloExtra_Despliegue_Vercel.md` | **Desplegar tu web en Vercel con HTTPS automático, dominios personalizados y CI/CD desde Git.** |
+| Gran cierre | `Proyecto_Final_Integrador.md` | Integrar todas las capas en un producto final listo para mostrar. |
 
 ## 🧠 Cómo sacar el máximo provecho
 1. **Lee el glosario de cada módulo** antes de empezar para familiarizarte con la terminología.
