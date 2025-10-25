@@ -151,6 +151,14 @@
     if (!modulePath) {
       document.getElementById('content').innerHTML = '<p>No se especificó un módulo.</p>';
     } else {
+      // Configurar marked para romper líneas
+      if (typeof marked !== 'undefined') {
+        marked.setOptions({
+          breaks: true,
+          gfm: true
+        });
+      }
+
       // Cargar y renderizar el Markdown
       fetch(modulePath)
         .then(response => {
@@ -158,7 +166,13 @@
           return response.text();
         })
         .then(markdown => {
-          document.getElementById('content').innerHTML = marked.parse(markdown);
+          if (typeof marked !== 'undefined' && marked.parse) {
+            document.getElementById('content').innerHTML = marked.parse(markdown);
+          } else if (typeof marked !== 'undefined') {
+            document.getElementById('content').innerHTML = marked(markdown);
+          } else {
+            document.getElementById('content').innerHTML = '<p>Error: Librería de Markdown no disponible</p>';
+          }
           
           // Actualizar título de la página
           const firstH1 = document.querySelector('h1');
