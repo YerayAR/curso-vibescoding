@@ -1,11 +1,11 @@
 {
-  "name": "TODO: Nombre de la aplicación",
-  "short_name": "TODO: Short",
+  "name": "Curso Vibescoding - Desarrollo web con IA",
+  "short_name": "Vibescoding",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#000000",
-  "description": "TODO: Descripción breve de la app",
+  "background_color": "#080c1a",
+  "theme_color": "#080c1a",
+  "description": "Programa intensivo de 8 módulos para crear, automatizar y desplegar experiencias web con ayuda de IA.",
   "icons": [
     {
       "src": "/favicon.ico",
@@ -13,10 +13,15 @@
       "type": "image/x-icon"
     },
     {
-      "src": "/assets/meta/social-card.png",
-      "sizes": "1200x630",
+      "src": "/icon-192.png",
+      "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any"
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
     }
   ]
 }

@@ -3,7 +3,7 @@
 
 <p align="center">
   <!-- Reemplaza la ruta cuando agregues tu imagen de portada -->
-  <img src="asset/portada-curso.jpg" alt="Portada del curso Vibescoding" width="100%" />
+  <img src="./asset/portada-curso.jpg" alt="Portada del curso Vibescoding" width="100%" />
 </p>
 <p align="center">
   👉 Visita la web oficial del curso: <a href="https://curso-vibescoding.vercel.app/" target="_blank">curso-vibescoding.vercel.app</a>
